@@ -6,12 +6,27 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #333;
     background-color: #fff;
     line-height: 1.6;
+    font-weight: 300; 
+}
+p, a, li {
+    font-weight: 300; /* Light weight for readability */
 }
 
+button, .btn {
+    font-weight: 400; /* Medium weight for buttons */
+}
+
+.footer-content h4 {
+    font-weight: 600; /* Match header style */
+}
+
+.footer-note, .footer-content p {
+    font-weight: 300; /* Maintain a light and clean look */
+}
 /* Header */
 header {
     display: flex;
@@ -352,8 +367,8 @@ button {
 
 /* Footer */
 footer {
-    background-color: #807e7e;
-    padding: 20px;
+    background-color: #bbb9b9;
+    padding:  40px 0 20px;
     text-align: center;
 }
 
@@ -368,7 +383,7 @@ footer {
 }
 
 .footer-note {
-    font-size: 14px;
+    font-size: 17px;
     color: #333;
     font-weight: bold;
 }
@@ -535,4 +550,123 @@ footer {
     .features-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.image-box.main-image {
+    width: 300px;  /* Set your desired width */
+    height: 400px; /* Set your desired height */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5; /* Fallback color while image loads */
+}
+
+.contained-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This maintains aspect ratio while filling the container */
+    object-position: center; /* Centers the image */
+    transition: transform 0.3s ease; /* Optional: for hover effect */
+}
+
+/* Optional: Add hover effect */
+.image-box.main-image:hover .contained-image {
+    transform: scale(1.05);
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .image-box.main-image {
+        width: 250px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-box.main-image {
+        width: 200px;
+        height: 300px;
+    }
+}
+
+.footer {
+    padding: 20px 0;
+    background-color: #f8f8f8;
+}
+
+.footer-box {
+    background-color: hsl(120, 4%, 82%);
+    border: 1px solid #868484;
+    box-shadow: 0 2px 8px rgba(46, 46, 46, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h4 {
+    color: #2a7f2e;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-section p {
+    color: #333;
+    margin: 5px 0;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.footer-note {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #b2d49e;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.brand-highlight {
+    color: #2a7f2e;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-box {
+        margin: 0 20px;
+        padding: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+/* Optional: Hover effect for links */
+.footer-section a {
+    color: #2a7f2e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #1a6f1e;
 }
