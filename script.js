@@ -109,3 +109,38 @@ document.addEventListener('DOMContentLoaded', () => {
         goToCard(currentCard);
     }, 4000);
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    const body = document.body;
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('active');
+        
+        navToggle.setAttribute('aria-expanded', !isOpen);
+        nav.classList.toggle('active');
+        body.classList.toggle('nav-open');
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener('click', (e) => {
+        const isNavClick = nav.contains(e.target);
+        const isToggleClick = navToggle.contains(e.target);
+        const isNavOpen = nav.classList.contains('active');
+
+        if (!isNavClick && !isToggleClick && isNavOpen) {
+            navToggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('active');
+            body.classList.remove('nav-open');
+        }
+    });
+
+    // Close nav when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            navToggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('active');
+            body.classList.remove('nav-open');
+        }
+    });
+});
